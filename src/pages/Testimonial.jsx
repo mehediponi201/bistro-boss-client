@@ -21,16 +21,16 @@ const Testimonial = () => {
     return (
         <div>
             <SectionTitle subheading={"What Our Clients Say"} heading={"TESTIMONIALS"}></SectionTitle>
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper my-20">
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 {
                     reviews.map(review => <SwiperSlide key={review._id}>
-                        <div className='flex flex-col items-center m-24'>
+                        <div className='flex flex-col items-center m-24 space-y-3'>
                             <Rating
                                 style={{ maxWidth: 180 }}
                                 value={review.rating}
                                 readOnly
                             />
-                            <p>{review.details}</p>
+                            <p className='mx-auto'>{review.details}</p>
                             <h3 className='text-2xl text-orange-400'>{review.name}</h3>
                         </div>
                     </SwiperSlide>)

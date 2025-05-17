@@ -17,14 +17,15 @@ const PopularMenu = () => {
     return (
         <div className='mb-10'>
             <SectionTitle
-                subheading={"---Check it out---"}
+                subheading={"Check it out"}
                 heading={"FROM OUR MENU"}
             ></SectionTitle>
             <div className='grid md:grid-cols-2 gap-10 mt-5'>
                 {
                     menu.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                 }
-            </div>
+            </div> 
+             <button className="btn btn-outline border-0 border-b-4 mx-auto flex items-center mt-10">View Full Menu</button>
         </div>
     );
 };
