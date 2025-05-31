@@ -1,13 +1,42 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext} from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthContext';
+import { BsCart4 } from "react-icons/bs";
+import UseCart from '../hooks/UseCart';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    const[cart] = UseCart();
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
     const navList =
         <>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/menu'>Our Menu</NavLink></li>
             <li><NavLink to='/order/salads'>Order Food</NavLink></li>
+            <li><NavLink to='/secret'>Secret</NavLink></li>
+            <li><NavLink to='/signup'>Signup</NavLink></li>
+            {
+                user ?
+                    <>
+                        {/* <p>{user.displayName}</p> */}
+                        <li onClick={handleSignOut} ><Link>LogOut</Link></li>
+                    </> :
+                    <><li><NavLink to='/login'>Login</NavLink></li></>
+            }
+            <li>
+                <NavLink to='dashboard'>
+                    <BsCart4></BsCart4> <div className="badge badge-sm badge-secondary">+{cart.length}</div>
+                </NavLink>
+            </li>
         </>
 
     return (
@@ -40,7 +69,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    {/* <a className="btn">Button</a> */}
                 </div>
             </div>
         </div>
