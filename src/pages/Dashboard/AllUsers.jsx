@@ -49,9 +49,11 @@ const AllUsers = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios.delete(`http://localhost:5000/users/${id}`, {
+                    // section start for jwt
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('access-token')}`
                     }
+                    // section End for jwt
                 })
                     .then(res => {
                         if (res.data.deleteCount > 0) {
