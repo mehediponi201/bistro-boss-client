@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log('current user is', currentUser);
-            setLoading(false);
+            // setLoading(false);
 
             // start section for JWT
             if (currentUser) {
@@ -53,12 +53,14 @@ const AuthProvider = ({ children }) => {
                         if (res.data.token) {
                             localStorage.setItem('access-token', res.data.token)
                         }
+                        setLoading(false);
                     })
             }
             else {
                 localStorage.removeItem('access-token');
+                setLoading(false);
             }
-             // End section for JWT
+            // End section for JWT
         })
         return () => {
             return unsubscribe();

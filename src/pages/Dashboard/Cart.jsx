@@ -3,9 +3,10 @@ import UseCart from '../../hooks/UseCart';
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const [cart,refetch] = UseCart();
+    const [cart, refetch] = UseCart();
     const totalPrice = cart.reduce((sum, item) => sum + item.price, 0)
     const handleDelete = id => {
         Swal.fire({
@@ -27,7 +28,7 @@ const Cart = () => {
                                 icon: "success"
                             });
                         }
-                         refetch();
+                        refetch();
                     })
             }
         });
@@ -38,7 +39,9 @@ const Cart = () => {
             <div className='flex justify-evenly mb-10'>
                 <h3 className='text-3xl'>Items:{cart.length}</h3>
                 <h3 className='text-3xl'>TotalPrice:{totalPrice}</h3>
-                <button className="btn btn-primary">Pay</button>
+                <Link to='/dashboard/payment'>
+                    <button className="btn btn-primary">Pay</button>
+                </Link>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">

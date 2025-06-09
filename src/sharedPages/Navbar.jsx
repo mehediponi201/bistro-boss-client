@@ -1,13 +1,15 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthContext';
 import { BsCart4 } from "react-icons/bs";
 import UseCart from '../hooks/UseCart';
+import UseAdmin from '../hooks/UseAdmin';
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const[cart] = UseCart();
+    const [cart] = UseCart();
+    const [isAdmin] = UseAdmin();
 
     const handleSignOut = () => {
         logOut()
@@ -22,7 +24,7 @@ const Navbar = () => {
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/menu'>Our Menu</NavLink></li>
             <li><NavLink to='/order/salads'>Order Food</NavLink></li>
-            <li><NavLink to='/secret'>Secret</NavLink></li>
+            {/* <li><NavLink to='/secret'>Secret</NavLink></li> */}
             <li><NavLink to='/signup'>Signup</NavLink></li>
             {
                 user ?
@@ -37,6 +39,12 @@ const Navbar = () => {
                     <BsCart4></BsCart4> <div className="badge badge-sm badge-secondary">+{cart.length}</div>
                 </NavLink>
             </li>
+            {
+                user && isAdmin && <li><NavLink to='/dashboard/adminHome'>Dashboard</NavLink></li>
+            }
+            {
+                user && !isAdmin && <li><NavLink to='/dashboard/home'>Dashboard</NavLink></li>
+            }
         </>
 
     return (

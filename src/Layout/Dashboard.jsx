@@ -58,8 +58,8 @@ const Dashboard = () => {
                                         <FaHome></FaHome> User Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='/dashboard/reservation'>
-                                        <RiAndroidFill></RiAndroidFill> Reservation</NavLink>
+                                    <NavLink to='/dashboard/paymentHistory'>
+                                        <RiAndroidFill></RiAndroidFill> Payment History</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/dashboard/cart'>
