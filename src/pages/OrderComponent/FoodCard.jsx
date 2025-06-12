@@ -22,7 +22,7 @@ const FoodCard = ({ item }) => {
                 image,
                 price
             }
-            axios.post('http://localhost:5000/carts', cartItem)
+            axios.post('https://bistro-boss-server-f217.onrender.com/carts', cartItem)
                 .then(res => {
                     console.log(res.data);
                     if (res.data.insertedId) {

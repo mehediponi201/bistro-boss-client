@@ -17,7 +17,7 @@ const SocialLogin = () => {
                     name: result.user?.name,
                     email: result.user?.email
                 }
-                axios.post('http://localhost:5000/users', userInfo)
+                axios.post('https://bistro-boss-server-f217.onrender.com/users', userInfo)
                     .then(res => {
                         console.log(res.data);
                         Swal.fire({

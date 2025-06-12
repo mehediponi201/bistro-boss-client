@@ -29,7 +29,7 @@ const UpdateItem = () => {
                 recipe: data.recipe,
                 image: res.data.data.display_url
             }
-            const menuRes = await axios.patch(`http://localhost:5000/menu/${_id}`, menuItem)
+            const menuRes = await axios.patch(`https://bistro-boss-server-f217.onrender.com/menu/${_id}`, menuItem)
             console.log(menuRes.data);
             // reset();
             if (menuRes.data.modifiedCount>0) {

@@ -33,7 +33,7 @@ const SignUp = () => {
                             email: email,
                             photo: photo
                         }
-                        axios.post('http://localhost:5000/users', userInfo)
+                        axios.post('https://bistro-boss-server-f217.onrender.com/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
                                     Swal.fire({

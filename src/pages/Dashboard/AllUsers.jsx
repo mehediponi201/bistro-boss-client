@@ -10,7 +10,7 @@ const AllUsers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/users',
+            const res = await axios.get('https://bistro-boss-server-f217.onrender.com/users',
                 // start section for JWT
                 {
                     headers: {
@@ -23,7 +23,7 @@ const AllUsers = () => {
     })
 
     const handleMakeAdmin = user => {
-        axios.patch(`http://localhost:5000/users/admin/${user._id}`)
+        axios.patch(`https://bistro-boss-server-f217.onrender.com/users/admin/${user._id}`)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
@@ -48,7 +48,7 @@ const AllUsers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/users/${id}`, {
+                axios.delete(`https://bistro-boss-server-f217.onrender.com/users/${id}`, {
                     // section start for jwt
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('access-token')}`

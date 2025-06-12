@@ -19,7 +19,7 @@ const CheckOutForm = () => {
     // server er shate client er link up
     useEffect(() => {
         const paymentData = async () => {
-            const res = await axios.post('http://localhost:5000/create-payment-intent', { price: totalPrice })
+            const res = await axios.post('https://bistro-boss-server-f217.onrender.com/create-payment-intent', { price: totalPrice })
             console.log(res.data.clientSecret);
             setSecretClient(res.data.clientSecret)
         }
@@ -81,7 +81,7 @@ const CheckOutForm = () => {
                     status: 'pending',
                     transactionId: paymentIntent.id
                 }
-                const res = await axios.post('http://localhost:5000/payments', payment)
+                const res = await axios.post('https://bistro-boss-server-f217.onrender.com/payments', payment)
                 console.log('payment saved', res.data);
                 refetch();
                 if (res.data?.paymentResult?.insertedId) {

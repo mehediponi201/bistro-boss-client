@@ -9,7 +9,7 @@ const PaymentHistory = () => {
     const { data: payments = [] } = useQuery({
         queryKey: ['payments', user.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/payments/${user.email}`)
+            const res = await axios.get(`https://bistro-boss-server-f217.onrender.com/payments/${user.email}`)
             return res.data;
         }
     })

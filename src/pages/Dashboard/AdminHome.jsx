@@ -10,7 +10,7 @@ const AdminHome = () => {
     const { data: stats,isLoading } = useQuery({
         queryKey: ['stats'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/admin-stats')
+            const res = await axios.get('https://bistro-boss-server-f217.onrender.com/admin-stats')
             return res.data;
         }
     })

@@ -21,7 +21,7 @@ const ManageItems = () => {
             confirmButtonText: "Yes, delete it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await axios.delete(`http://localhost:5000/menu/${item._id}`)
+                const res = await axios.delete(`https://bistro-boss-server-f217.onrender.com/menu/${item._id}`)
                 console.log(res.data);
                 if (res.data.deletedCount > 0) {
                     refetch()

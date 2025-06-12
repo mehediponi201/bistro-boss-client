@@ -16,7 +16,7 @@ const Additems = () => {
         console.log(data)
         const imgFile = { image: data.image[0] }
         const res = await axios.post(image_hoisting_api, imgFile, {
-            // const res = await axios.post(`http://localhost:5000/`,image_hoisting_api, imgFile, {
+            // const res = await axios.post(`https://bistro-boss-server-f217.onrender.com/`,image_hoisting_api, imgFile, {
             headers: {
                 "content-type": "multipart/form-data",
             }
@@ -31,7 +31,7 @@ const Additems = () => {
                 recipe: data.recipe,
                 image: res.data.data.display_url
             }
-            const menuRes = await axios.post('http://localhost:5000/menu', menuItem)
+            const menuRes = await axios.post('https://bistro-boss-server-f217.onrender.com/menu', menuItem)
             console.log(menuRes.data);
             reset();
             if (menuRes.data.insertedId) {

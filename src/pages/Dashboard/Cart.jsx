@@ -19,7 +19,7 @@ const Cart = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/carts/${id}`)
+                axios.delete(`https://bistro-boss-server-f217.onrender.com/carts/${id}`)
                     .then(res => {
                         if (res.data.deleteCount > 0) {
                             Swal.fire({

@@ -7,7 +7,7 @@ const UseMenu = () => {
     // const [menu, setMenu] = useState([])
     // const [loading, setLoading] = useState(true);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/menu')
+    //     fetch('https://bistro-boss-server-f217.onrender.com/menu')
     //         .then(res => res.json())
     //         .then(data => {
     //             setMenu(data),
@@ -19,7 +19,7 @@ const UseMenu = () => {
     const {data:menu = [],loading,refetch} = useQuery({
         queryKey:['menu'],
         queryFn: async()=>{
-            const res = await axios.get('http://localhost:5000/menu')
+            const res = await axios.get('https://bistro-boss-server-f217.onrender.com/menu')
             return res.data;
         }
     })
